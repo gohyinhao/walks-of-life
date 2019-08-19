@@ -1,4 +1,48 @@
 body {
     background: url("/images/homePage.jpg") no-repeat center center fixed;
     background-size: 100% 100%;
+    font-size: 62.5%;
+}
+
+#blog-description {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    position: fixed;
+    top: 1%;
+    left: 2.5%;
+    width: 11vw;
+    height: 33vh;
+}
+
+#blog-description div {
+    font-family: "Shadows Into Light", cursive;
+    font-size: 4.5vw;
+    width: 100%;
+    line-height: 33%;
+}
+
+#main-content-container {
+    position: fixed;
+    top: 5%;
+    right: 7%;
+    width: 38vw;
+    height: 88vh;
+}
+
+.header {
+    margin-top: 2vh;
+    font-family: "Shadows Into Light", cursive;
+    font-size: 2.5vw;
+    text-align: center;
+}
+
+.content {
+    position: absolute;
+    bottom: 0;
+    height: 90%;
+    margin: 0 1vw;
+    font-family: "Open Sans Condensed", sans-serif;
+    font-size: 1.5vw;
+    overflow: auto;
 }
