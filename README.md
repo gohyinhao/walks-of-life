@@ -1,6 +1,6 @@
 # Walks Of Life - Jensi's Blog
 
-![Homepage Image](/images/homePage.jpg)
+![Homepage Image](/public/images/homePage.jpg)
 
 # License
 GNU General Public License
