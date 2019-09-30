@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 const app = express();
 
 // Local Host
@@ -11,6 +12,7 @@ mongoose.connect('mongodb://localhost:27017/walksOfLifeDB', { useNewUrlParser: t
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(`${__dirname}/public`));
+app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 
 // =================================

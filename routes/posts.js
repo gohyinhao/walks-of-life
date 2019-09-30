@@ -38,4 +38,14 @@ router.get('/posts/:id', (req, res) => {
   });
 });
 
+router.get('/posts/:id/edit', (req, res) => {
+  Post.findById(req.params.id, (error, post) => {
+    if (error) {
+      console.error(error);
+    } else {
+      res.render('posts/edit', { post });
+    }
+  });
+});
+
 module.exports = router;
