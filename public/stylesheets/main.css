@@ -50,6 +50,51 @@ body {
     overflow: auto;
 }
 
+#post-page-link {
+    position: absolute;
+    left: 38.5%;
+    bottom: 1%;
+    height: 62%;
+    width: 10%;
+}
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip .tooltip-text {
+    position: absolute;
+    top: -1.5rem;
+    right: 40%;
+    z-index: 1;
+    visibility: hidden;
+    width: 5rem;
+    background-color: black;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.6rem;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip .tooltip-text::after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -0.5rem;
+    border-width: 0.5rem;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
 .delete-form {
     display: inline;
 }
