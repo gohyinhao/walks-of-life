@@ -1,0 +1,17 @@
+<% include ../partials/header %>
+
+<div id="main-content-container">
+    <h1 id="header" class="ui header">Posts</h1>
+    <div id="content" class="ui container">
+        <a class="ui green basic button" href="/posts/new">New Post</a>
+        <% posts.forEach(post => { %>
+            <div class="ui segment">
+                <h3 class="ui header"><%= post.title %></h3>
+                <p><%= post.content.substring(0, 100) %>...</p>
+                <a href="/posts/<%= post._id %>" class="ui basic button">Read More</a>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<% include ../partials/footer %>

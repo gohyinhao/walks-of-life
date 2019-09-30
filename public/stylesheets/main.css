@@ -32,19 +32,24 @@ body {
     height: 88vh;
 }
 
-.header {
+#header {
     margin-top: 3vh;
     font-family: "Shadows Into Light", cursive;
     font-size: 2.5vw;
     text-align: center;
 }
 
-.content {
+#content {
     position: absolute;
     bottom: 0;
     height: 90%;
     margin: 0 1vw;
+    padding: 1em 1em 0 0;
     font-family: "Open Sans Condensed", sans-serif;
     font-size: 1.5vw;
     overflow: auto;
+}
+
+.huge-font {
+    font-size: 10vw;
 }
