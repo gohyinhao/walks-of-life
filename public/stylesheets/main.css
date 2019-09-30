@@ -1,5 +1,7 @@
 body {
-    background: url("/images/homePage.jpg") no-repeat center center fixed;
+    background-image: url("/images/homePage.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: 100% 100%;
     font-size: 62.5%;
 }
@@ -31,7 +33,7 @@ body {
 }
 
 .header {
-    margin-top: 2vh;
+    margin-top: 3vh;
     font-family: "Shadows Into Light", cursive;
     font-size: 2.5vw;
     text-align: center;
