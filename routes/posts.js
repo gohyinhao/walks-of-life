@@ -56,4 +56,13 @@ router.put('/posts/:id', (req, res) => {
   });
 });
 
+router.delete('/posts/:id', (req, res) => {
+  Post.findByIdAndRemove(req.params.id, { useFindAndModify: false }, error => {
+    if (error) {
+      console.error(error);
+    }
+    res.redirect('/posts');
+  });
+});
+
 module.exports = router;

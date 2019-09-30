@@ -50,6 +50,6 @@ body {
     overflow: auto;
 }
 
-.huge-font {
-    font-size: 10vw;
+.delete-form {
+    display: inline;
 }
