@@ -16,10 +16,7 @@ router.get('/posts', (req, res) => {
 router.get('/posts/new', (req, res) => res.render('posts/new'));
 
 router.post('/posts', (req, res) => {
-  const title = req.body.title;
-  const content = req.body.content;
-  const newPost = { title, content };
-  Post.create(newPost, (error) => {
+  Post.create(req.body.post, (error) => {
     if (error) {
       console.error(error);
     } else {
@@ -44,6 +41,17 @@ router.get('/posts/:id/edit', (req, res) => {
       console.error(error);
     } else {
       res.render('posts/edit', { post });
+    }
+  });
+});
+
+router.put('/posts/:id', (req, res) => {
+  Post.findByIdAndUpdate(req.params.id, req.body.post, { useFindAndModify: false }, error => {
+    if (error) {
+      console.error(error);
+      res.redirect('/posts');
+    } else {
+      res.redirect(`/posts/${req.params.id}`);
     }
   });
 });

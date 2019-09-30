@@ -6,11 +6,11 @@
         <form class="ui form" action="/posts" method="POST">
             <div class="field">
                 <label>Title</label>
-                <input type="text" name="title" placeholder="Title">
+                <input type="text" name="post[title]" placeholder="Title">
             </div>
             <div class="field">
                 <label>Content</label>
-                <textarea name="content" placeholder="Content"></textarea>
+                <textarea name="post[content]" placeholder="Content"></textarea>
             </div>
             <button class="ui green basic button" type="submit">Post!</button>
         </form>
@@ -21,6 +21,7 @@
 
         <div class="ui segment">
             <p>Note that to style content, you need to embed HTML markup</p>
+            <p>Does not work yet. Will implement this in the future</p>
             <p>Bold - &lt;b&gt;Text&lt;/b&gt;</p>
             <p>Italics - &lt;i&gt;Text&lt;/i&gt;</p>
             <p>Underline - &lt;u&gt;Text&lt;/u&gt;</p>
