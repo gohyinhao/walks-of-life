@@ -4,9 +4,9 @@ const methodOverride = require('method-override');
 const app = express();
 
 // Local Host
-mongoose.connect('mongodb://localhost:27017/walksOfLifeDB', { useNewUrlParser: true })
+// mongoose.connect('mongodb://localhost:27017/walksOfLifeDB', { useNewUrlParser: true })
 // Atlas Database
-// mongoose.connect('mongodb+srv://admin:vsyZJDRePzK5FGuS@maindb-p4sqm.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true })
+mongoose.connect('mongodb+srv://admin:vsyZJDRePzK5FGuS@maindb-p4sqm.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true })
   .then(() => console.log('DB Connected!'))
   .catch(error => console.log('DATABASE ERROR:', error.message));
 
