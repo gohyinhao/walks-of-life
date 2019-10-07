@@ -23,12 +23,16 @@
         <span class="tooltip-text">Posts</span>
     </a>
 
-    <a href="/login" id="login-page-link" class="tooltip tooltip-top">
-        <span class="tooltip-text">Login</span>
+    <a href="#" id="about-page-link" class="tooltip tooltip-bottom">
+        <span class="tooltip-text">About</span>
     </a>
 
     <% if (user) { %>
-        <a href="/logout" id="logout-page-link" class="tooltip tooltip-bottom">
+        <a href="/logout" id="login-page-link" class="tooltip tooltip-top">
             <span class="tooltip-text">Logout</span>
+        </a>
+    <% } else { %>
+        <a href="/login" id="login-page-link" class="tooltip tooltip-top">
+            <span class="tooltip-text">Login</span>
         </a>
     <% } %>

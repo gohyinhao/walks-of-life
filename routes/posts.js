@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+const middleware = require('../middleware');
 const Post = require('../models/post');
 
 router.get('/posts', (req, res) => {
@@ -13,9 +14,9 @@ router.get('/posts', (req, res) => {
   });
 });
 
-router.get('/posts/new', (req, res) => res.render('posts/new'));
+router.get('/posts/new', middleware.isLoggedIn, (req, res) => res.render('posts/new'));
 
-router.post('/posts', (req, res) => {
+router.post('/posts', middleware.isLoggedIn, (req, res) => {
   Post.create(req.body.post, (error) => {
     if (error) {
       console.error(error);
@@ -35,7 +36,7 @@ router.get('/posts/:id', (req, res) => {
   });
 });
 
-router.get('/posts/:id/edit', (req, res) => {
+router.get('/posts/:id/edit', middleware.isLoggedIn, (req, res) => {
   Post.findById(req.params.id, (error, post) => {
     if (error) {
       console.error(error);
@@ -45,7 +46,7 @@ router.get('/posts/:id/edit', (req, res) => {
   });
 });
 
-router.put('/posts/:id', (req, res) => {
+router.put('/posts/:id', middleware.isLoggedIn, (req, res) => {
   Post.findByIdAndUpdate(req.params.id, req.body.post, { useFindAndModify: false }, error => {
     if (error) {
       console.error(error);
@@ -56,7 +57,7 @@ router.put('/posts/:id', (req, res) => {
   });
 });
 
-router.delete('/posts/:id', (req, res) => {
+router.delete('/posts/:id', middleware.isLoggedIn, (req, res) => {
   Post.findByIdAndRemove(req.params.id, { useFindAndModify: false }, error => {
     if (error) {
       console.error(error);
