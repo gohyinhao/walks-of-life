@@ -11,6 +11,8 @@ router.post('/register', (req, res) => {
   User.register(newUser, req.body.password, (error, user) => {
     if (error) {
       console.error(error);
+    } else {
+      res.send('User created successfully');
     }
   });
 });
