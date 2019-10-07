@@ -39,6 +39,14 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// =============================
+// MIDDLEWARE
+// =============================
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
+
 // =================================
 // ROUTES
 // =================================

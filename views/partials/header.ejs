@@ -19,10 +19,16 @@
         </div>
     </a>
 
-    <a href="/posts" id="post-page-link" class="tooltip">
+    <a href="/posts" id="post-page-link" class="tooltip tooltip-top">
         <span class="tooltip-text">Posts</span>
     </a>
 
-    <a href="/login" id="login-page-link" class="tooltip">
+    <a href="/login" id="login-page-link" class="tooltip tooltip-top">
         <span class="tooltip-text">Login</span>
     </a>
+
+    <% if (user) { %>
+        <a href="/logout" id="logout-page-link" class="tooltip tooltip-bottom">
+            <span class="tooltip-text">Logout</span>
+        </a>
+    <% } %>
