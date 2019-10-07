@@ -1,6 +1,11 @@
+// =============================
+// APP SETUP
+// =============================
 const express = require('express');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
+const passport = require('passport');
+const localStrategy = require('passport-local');
 const app = express();
 
 // Local Host
@@ -14,6 +19,25 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(`${__dirname}/public`));
 app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
+
+// =============================
+// MODELS
+// =============================
+const User = require('./models/user');
+
+// =============================
+// PASSPORT CONFIG
+// =============================
+app.use(require('express-session')({
+  secret: 'Cool doggo',
+  resave: false,
+  saveUnitialized: false,
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new localStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // =================================
 // ROUTES
