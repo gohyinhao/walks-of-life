@@ -6,16 +6,16 @@ const User = require('../models/user');
 
 router.get('/', (req, res) => res.render('home'));
 
-router.post('/register', (req, res) => {
-  const newUser = new User({ username: req.body.username });
-  User.register(newUser, req.body.password, (error, user) => {
-    if (error) {
-      console.error(error);
-    } else {
-      res.send('User created successfully');
-    }
-  });
-});
+// router.post('/register', (req, res) => {
+//   const newUser = new User({ username: req.body.username });
+//   User.register(newUser, req.body.password, (error, user) => {
+//     if (error) {
+//       console.error(error);
+//     } else {
+//       res.send('User created successfully');
+//     }
+//   });
+// });
 
 router.get('/login', (req, res) => res.render('login'));
 
