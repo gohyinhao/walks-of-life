@@ -9,7 +9,7 @@
         <% posts.forEach(post => { %>
             <div class="ui segment">
                 <h3 class="ui header"><%= post.title %></h3>
-                <p><%= post.content.substring(0, 100) %>...</p>
+                <!-- <p><%= post.content.substring(0, 100) %>...</p> -->
                 <a href="/posts/<%= post._id %>" class="ui basic button">Read More</a>
                 <% if (user) { %>
                     <a href="/posts/<%= post._id %>/edit" class="ui blue basic button">Edit Post</a>

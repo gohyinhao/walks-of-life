@@ -10,26 +10,14 @@
             </div>
             <div class="field">
                 <label>Content</label>
-                <textarea name="post[content]" placeholder="Content"><%= post.content %></textarea>
+                <textarea name="post[content]" id="wysiwyg-editor"><%= post.content %></textarea>
             </div>
             <button class="ui green basic button" type="submit">Save!</button>
         </form>
 
         <p><a class="ui black basic button" href="/posts/<%= post._id %>">Go Back!</a></p>
-
-        <div class="ui divider"></div>
-
-        <div class="ui segment">
-            <p>Note that to style content, you need to embed HTML markup</p>
-            <p>Does not work yet. Will implement this in the future</p>
-            <p>Bold - &lt;b&gt;Text&lt;/b&gt;</p>
-            <p>Italics - &lt;i&gt;Text&lt;/i&gt;</p>
-            <p>Underline - &lt;u&gt;Text&lt;/u&gt;</p>
-            <p>Headers - &lt;h(num)&gt;Text&lt;/h(num)&gt; where num can be 1 to 6</p>
-            <p>Paragraphing - &lt;p&gt;Text&lt;/p&gt;</p>
-            <p>Line Breaks - &lt;br&gt;Text&lt;/br&gt;</p>
-        </div>
     </div>
 </div>
 
+<% include ../partials/froalaEditor %>
 <% include ../partials/footer %>
