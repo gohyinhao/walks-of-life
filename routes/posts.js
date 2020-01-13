@@ -1,4 +1,5 @@
 const express = require('express');
+const moment = require('moment');
 const router = express.Router();
 
 const middleware = require('../middleware');
@@ -17,7 +18,12 @@ router.get('/posts', (req, res) => {
 router.get('/posts/new', middleware.isLoggedIn, (req, res) => res.render('posts/new'));
 
 router.post('/posts', middleware.isLoggedIn, (req, res) => {
-  Post.create(req.body.post, (error) => {
+  const post = {
+    title: req.body.post.title,
+    content: req.body.post.content,
+    datePosted: moment().format('MMM Do YYYY, h:mm a'),
+  };
+  Post.create(post, (error) => {
     if (error) {
       console.error(error);
     } else {

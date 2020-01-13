@@ -3,6 +3,8 @@
 <h1 id="header" class="ui header"><%= post.title %></h1>
 <div id="content" class="ui container">
     <div class="ui text container" id="post-content">
+        Posted on <%= post.datePosted %>
+        <hr>
         <%- post.content %>
     </div>
 
