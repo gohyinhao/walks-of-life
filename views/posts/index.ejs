@@ -1,25 +1,23 @@
 <% include ../partials/header %>
 
-<div id="main-content-container">
-    <h1 id="header" class="ui header">Posts</h1>
-    <div id="content" class="ui container">
-        <% if (user) { %>
-            <a class="ui green basic button" href="/posts/new">New Post</a>
-        <% } %>
-        <% posts.forEach(post => { %>
-            <div class="ui segment">
-                <h3 class="ui header"><%= post.title %></h3>
-                <!-- <p><%= post.content.substring(0, 100) %>...</p> -->
-                <a href="/posts/<%= post._id %>" class="ui basic button">Read More</a>
-                <% if (user) { %>
-                    <a href="/posts/<%= post._id %>/edit" class="ui blue basic button">Edit Post</a>
-                    <form class="delete-form" action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-                        <button class="ui red basic button">Delete Post</button>
-                    </form>
-                <% } %>
-            </div>
-        <% }) %>
-    </div>
+<h1 id="header" class="ui header">Posts</h1>
+<div id="content" class="ui container">
+    <% if (user) { %>
+        <a class="ui green basic button" href="/posts/new">New Post</a>
+    <% } %>
+    <% posts.forEach(post => { %>
+        <div class="ui segment">
+            <h3 class="ui header"><%= post.title %></h3>
+            <!-- <p><%= post.content.substring(0, 100) %>...</p> -->
+            <a href="/posts/<%= post._id %>" class="ui basic button">Read More</a>
+            <% if (user) { %>
+                <a href="/posts/<%= post._id %>/edit" class="ui blue basic button">Edit Post</a>
+                <form class="delete-form" action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+                    <button class="ui red basic button">Delete Post</button>
+                </form>
+            <% } %>
+        </div>
+    <% }) %>
 </div>
 
 <% include ../partials/footer %>

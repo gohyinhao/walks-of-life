@@ -1,22 +1,20 @@
 <% include ../partials/header %>
 
-<div id="main-content-container">
-    <h1 id="header" class="ui header"><%= post.title %></h1>
-    <div id="content" class="ui container">
-        <div class="ui text container" id="post-content">
-            <%- post.content %>
-        </div>
-
-        <div class="ui divider"></div>
-
-        <a class="ui black basic button" href="/posts">Go Back!</a>
-        <% if (user) { %>
-            <a class="ui blue basic button" href="/posts/<%= post._id %>/edit">Edit Post</a>
-            <form class="delete-form" action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-                <button class="ui red basic button">Delete Post</button>
-            </form>
-        <% } %>
+<h1 id="header" class="ui header"><%= post.title %></h1>
+<div id="content" class="ui container">
+    <div class="ui text container" id="post-content">
+        <%- post.content %>
     </div>
+
+    <div class="ui divider"></div>
+
+    <a class="ui black basic button" href="/posts">Go Back!</a>
+    <% if (user) { %>
+        <a class="ui blue basic button" href="/posts/<%= post._id %>/edit">Edit Post</a>
+        <form class="delete-form" action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+            <button class="ui red basic button">Delete Post</button>
+        </form>
+    <% } %>
 </div>
 
 <% include ../partials/footer %>
