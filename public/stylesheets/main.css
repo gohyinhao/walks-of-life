@@ -53,3 +53,11 @@ body {
 .delete-form {
     display: inline;
 }
+
+.about-page-links {
+    float: right;
+}
+
+.about-page-links a {
+    color: black;
+}
