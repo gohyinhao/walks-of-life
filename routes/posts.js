@@ -22,6 +22,7 @@ router.post('/posts', middleware.isLoggedIn, (req, res) => {
     title: req.body.post.title,
     content: req.body.post.content,
     datePosted: moment().format('MMM Do YYYY, h:mm a'),
+    lastEditedDate: '',
   };
   Post.create(post, (error) => {
     if (error) {
@@ -53,7 +54,12 @@ router.get('/posts/:id/edit', middleware.isLoggedIn, (req, res) => {
 });
 
 router.put('/posts/:id', middleware.isLoggedIn, (req, res) => {
-  Post.findByIdAndUpdate(req.params.id, req.body.post, { useFindAndModify: false }, error => {
+  const editedPost = {
+    title: req.body.post.title,
+    content: req.body.post.content,
+    lastEditedDate: moment().format('MMM Do YYYY, h:mm a'),
+  };
+  Post.findByIdAndUpdate(req.params.id, editedPost, { useFindAndModify: false }, error => {
     if (error) {
       console.error(error);
       res.redirect('/posts');

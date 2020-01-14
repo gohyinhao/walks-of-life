@@ -3,7 +3,12 @@
 <h1 id="header" class="ui header"><%= post.title %></h1>
 <div id="content" class="ui container">
     <div class="ui text container" id="post-content">
-        Posted on <%= post.datePosted %>
+        <% if (post.lastEditedDate) { %>
+            Last Edited on <%= post.lastEditedDate %>
+        <% } else { %>
+            Posted on <%= post.datePosted %>
+        <% } %>
+
         <hr>
         <%- post.content %>
     </div>
