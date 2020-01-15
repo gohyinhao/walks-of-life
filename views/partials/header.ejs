@@ -39,3 +39,16 @@
     <% } %>
 
     <div id="main-content-container">
+        <% if (error && error.length > 0) { %>
+            <div class="ui huge error message fadeout">
+                <%= error %>
+            </div>
+            <% } %>
+            <% if (success && success.length > 0) { %>
+            <div class="ui huge success message fadeout">
+                <%= success %>
+            </div>
+        <% } %>
+
+
+

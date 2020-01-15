@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const passport = require('passport');
 const localStrategy = require('passport-local');
+const flash = require('connect-flash');
 const app = express();
 
 // Local Host
@@ -18,6 +19,7 @@ mongoose.connect('mongodb+srv://admin:vsyZJDRePzK5FGuS@maindb-p4sqm.mongodb.net/
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(`${__dirname}/public`));
 app.use(methodOverride('_method'));
+app.use(flash());
 app.set('view engine', 'ejs');
 
 // =============================
@@ -44,6 +46,8 @@ passport.deserializeUser(User.deserializeUser());
 // =============================
 app.use((req, res, next) => {
   res.locals.user = req.user;
+  res.locals.error = req.flash('error');
+  res.locals.success = req.flash('success');
   next();
 });
 

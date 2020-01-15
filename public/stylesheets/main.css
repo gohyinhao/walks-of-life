@@ -25,11 +25,14 @@ body {
 }
 
 #main-content-container {
+    display: inline-flex;
+    flex-flow: column;
     position: fixed;
     top: 5%;
     right: 7%;
     width: 38vw;
     height: 88vh;
+    overflow: hidden;
 }
 
 #header {
@@ -40,11 +43,13 @@ body {
 }
 
 #content {
-    position: absolute;
+    /* position: absolute;
     bottom: 0;
-    height: 90%;
-    margin: 0 1vw;
-    padding: 1em 1em 0 0;
+    height: 90%; */
+    flex-grow: 1;
+    height: auto;
+    margin: 1em 1vw;
+    padding: 0 1em 0 0;
     font-family: "Open Sans Condensed", sans-serif;
     font-size: 1.5vw;
     overflow: auto;
